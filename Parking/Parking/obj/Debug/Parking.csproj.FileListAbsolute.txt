@@ -20,3 +20,9 @@ D:\KP\Parking\Parking\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\KP\Parking\Parking\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\KP\Parking\Parking\obj\Debug\App.baml
 D:\KP\Parking\Parking\obj\Debug\Parking.csproj.CopyComplete
+D:\KP\Parking\Parking\bin\Debug\EntityFramework.dll
+D:\KP\Parking\Parking\bin\Debug\EntityFramework.SqlServer.dll
+D:\KP\Parking\Parking\bin\Debug\EntityFramework.xml
+D:\KP\Parking\Parking\bin\Debug\EntityFramework.SqlServer.xml
+D:\KP\Parking\Parking\obj\Debug\EnterAndRegist\EnterAndRegist.g.cs
+D:\KP\Parking\Parking\obj\Debug\EnterAndRegist\EnterAndRegist.baml

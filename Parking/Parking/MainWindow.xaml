@@ -6,57 +6,8 @@
         xmlns:local="clr-namespace:Parking"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Парковка"  MinHeight="650" MinWidth="500" MaxHeight="700" MaxWidth="700">
+        Title="Парковка"  MinHeight="650" MinWidth="500" >
     <Grid x:Name="Mainf" Background="#ffdadada">
-        <Border MinWidth="400" Margin="15" Background="white" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"></DropShadowEffect>
-            </Border.Effect>
-            <TabControl BorderBrush="Purple">
-                <TabItem>
-                    <TabItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Ellipse Height="10" Width="10" Fill="Purple"></Ellipse>
-                            <TextBlock Margin="3" Style="{DynamicResource MaterialDesignHeadline1TextBlock}" FontSize="16" FontFamily="Times New Roman">Вход</TextBlock>
-                        </StackPanel>
-                    </TabItem.Header>
-                    <TabItem.Content>
-                        <StackPanel>
-                            <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 20 0 20">
-                                Добро Пожаловать
-                            </TextBlock>
-                            <TextBox materialDesign:HintAssist.Hint="Введите Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10"></TextBox>
-                            <PasswordBox materialDesign:HintAssist.Hint="Введите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 0 0 50"></PasswordBox>
-                            <Grid Margin="0 0 0 20">
-                                <Button Content="Войти" FontSize="16"></Button>
-                            </Grid>
-                        </StackPanel>
-                    </TabItem.Content>
-                </TabItem>
-                <TabItem>
-                    <TabItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Ellipse Height="10" Width="10" Fill="Purple"></Ellipse>
-                            <TextBlock Margin="3" Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="16" FontFamily="Times New Roman">Регистрация</TextBlock>
-                        </StackPanel>
-                    </TabItem.Header>
-                    <TabItem.Content>
-                        <StackPanel>
-                            <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 20 0 20">Заполните поля</TextBlock>
-                            <TextBox materialDesign:HintAssist.Hint="Введите Email(пример vasya@mail.ru)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10"></TextBox>
-                            <TextBox materialDesign:HintAssist.Hint="Введите Фамилию" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10"></TextBox>
-                            <TextBox materialDesign:HintAssist.Hint="Введите Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10"></TextBox>
-                            <TextBox materialDesign:HintAssist.Hint="Введите номер телефона(пример 375297586413)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10"></TextBox>
-                            <PasswordBox materialDesign:HintAssist.Hint="Введите Пароль(пример o2sT2iuCdT4B2LxsUfns)" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 0 0 10"></PasswordBox>
-                            <PasswordBox materialDesign:HintAssist.Hint="Повторите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 0 0 50"></PasswordBox>
-                            <Grid Margin="0 0 0 20">
-                                <Button Content="Зарегестрироваться" FontSize="16"></Button>
-                            </Grid>
-                        </StackPanel>
-                        
-                    </TabItem.Content>
-                </TabItem>
-            </TabControl>
-        </Border>
+        
     </Grid>
 </Window>
