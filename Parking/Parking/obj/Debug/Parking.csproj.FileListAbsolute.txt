@@ -26,3 +26,9 @@ D:\KP\Parking\Parking\bin\Debug\EntityFramework.xml
 D:\KP\Parking\Parking\bin\Debug\EntityFramework.SqlServer.xml
 D:\KP\Parking\Parking\obj\Debug\EnterAndRegist\EnterAndRegist.g.cs
 D:\KP\Parking\Parking\obj\Debug\EnterAndRegist\EnterAndRegist.baml
+D:\KP\Parking\Parking\bin\Debug\DevExpress.Mvvm.dll
+D:\KP\Parking\Parking\bin\Debug\DevExpress.Mvvm.UI.dll
+D:\KP\Parking\Parking\bin\Debug\DevExpress.Mvvm.pdb
+D:\KP\Parking\Parking\bin\Debug\DevExpress.Mvvm.UI.pdb
+D:\KP\Parking\Parking\bin\Debug\ru\EntityFramework.resources.dll
+D:\KP\Parking\Parking\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
