@@ -22,7 +22,7 @@ namespace Parking.DataBase
 
         public int UserId { get; set; }
 
-        public virtual Parking Parking { get; set; }
+        public virtual MyParking MyParking { get; set; }
 
         public virtual Users Users { get; set; }
     }

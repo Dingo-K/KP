@@ -124,6 +124,7 @@ namespace Parking.ViewModel
                     if (check.email == emailforEnter && check.password == GetHashPassword(PasswrdforEnter))
                     {
                         MainWindow main = new MainWindow();
+                        main.UserInfo(check.UserId, check.Firstname, check.Secondname, check.email, check.Mobile);
                         main.Show();
                         foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
                         {

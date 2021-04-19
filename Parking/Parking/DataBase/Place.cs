@@ -34,6 +34,6 @@ namespace Parking.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Booking { get; set; }
 
-        public virtual Parking Parking { get; set; }
+        public virtual MyParking MyParking { get; set; }
     }
 }

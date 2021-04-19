@@ -6,24 +6,22 @@ namespace Parking.DataBase
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Parking")]
-    public partial class Parking
+    [Table("MyParking")]
+    public partial class MyParking
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Parking()
+        public MyParking()
         {
             Place = new HashSet<Place>();
             Review = new HashSet<Review>();
         }
 
+        [Key]
         public int ParkingId { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-
-        [Column(TypeName = "image")]
-        public byte[] Picture { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Place> Place { get; set; }

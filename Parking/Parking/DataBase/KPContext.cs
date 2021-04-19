@@ -13,7 +13,7 @@ namespace Parking.DataBase
         }
 
         public virtual DbSet<Booking> Booking { get; set; }
-        public virtual DbSet<Parking> Parking { get; set; }
+        public virtual DbSet<MyParking> MyParking { get; set; }
         public virtual DbSet<Place> Place { get; set; }
         public virtual DbSet<Review> Review { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
@@ -21,14 +21,14 @@ namespace Parking.DataBase
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Parking>()
+            modelBuilder.Entity<MyParking>()
                 .HasMany(e => e.Place)
-                .WithRequired(e => e.Parking)
+                .WithRequired(e => e.MyParking)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Parking>()
+            modelBuilder.Entity<MyParking>()
                 .HasMany(e => e.Review)
-                .WithRequired(e => e.Parking)
+                .WithRequired(e => e.MyParking)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Place>()

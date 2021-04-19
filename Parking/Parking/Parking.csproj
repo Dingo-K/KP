@@ -78,9 +78,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AllReview\AllRev.cs" />
+    <Compile Include="AllReview\AllReview.xaml.cs">
+      <DependentUpon>AllReview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataBase\Booking.cs" />
     <Compile Include="DataBase\KPContext.cs" />
-    <Compile Include="DataBase\Parking.cs" />
+    <Compile Include="DataBase\MyParking.cs" />
     <Compile Include="DataBase\Place.cs" />
     <Compile Include="DataBase\Review.cs" />
     <Compile Include="DataBase\sysdiagrams.cs" />
@@ -89,6 +93,10 @@
       <DependentUpon>EnterAndRegist.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\UserReg.cs" />
+    <Page Include="AllReview\AllReview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EnterAndRegist\EnterAndRegist.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,7 +141,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\oz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Park.jpg" />
+    <Resource Include="Resources\prof.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

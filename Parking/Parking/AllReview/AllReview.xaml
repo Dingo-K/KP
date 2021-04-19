@@ -1,0 +1,25 @@
+﻿<Window x:Class="Parking.AllReview.AllReview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Parking.AllReview"
+        mc:Ignorable="d"
+        Title="Отзывы" Height="450" Width="800">
+    <Grid Background="Aqua">
+        <StackPanel>
+            <TextBlock FontSize="25" Foreground="Purple" HorizontalAlignment="Center" Margin="0 20 0 0">Все отзывы</TextBlock>
+            <ListBox x:Name="ListReview" Width="700" Height="350" Background="white">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding firstname}" Foreground="Green" FontSize="16"></TextBlock>
+                            <TextBlock Text="{Binding time}" FontSize="12" Foreground="Gray"></TextBlock>
+                            <TextBlock Text="{Binding review}" Width="690" TextWrapping="Wrap" FontSize="14"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>

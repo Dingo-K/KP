@@ -26,14 +26,15 @@ namespace Parking.DataBase
         [StringLength(50)]
         public string Firstname { get; set; }
 
+        [Required]
+        [StringLength(20)]
         public string Mobile { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(100)]
         public string email { get; set; }
 
         [Required]
-        [StringLength(50)]
         public string password { get; set; }
 
         public bool Admin { get; set; }

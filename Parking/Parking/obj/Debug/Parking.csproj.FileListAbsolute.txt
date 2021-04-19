@@ -32,3 +32,5 @@ D:\KP\Parking\Parking\bin\Debug\DevExpress.Mvvm.pdb
 D:\KP\Parking\Parking\bin\Debug\DevExpress.Mvvm.UI.pdb
 D:\KP\Parking\Parking\bin\Debug\ru\EntityFramework.resources.dll
 D:\KP\Parking\Parking\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+D:\KP\Parking\Parking\obj\Debug\AllReview\AllReview.g.cs
+D:\KP\Parking\Parking\obj\Debug\AllReview\AllReview.baml
