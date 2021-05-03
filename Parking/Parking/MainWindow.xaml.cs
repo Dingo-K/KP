@@ -66,5 +66,59 @@ namespace Parking
             Comments.Showing();
             Comments.Show();
         }
+
+        private void Reload_Click(object sender, RoutedEventArgs e)
+        {
+            using(KPContext kP = new KPContext())
+            {
+                FreeBusy.Text = " ";
+                float all = 0;
+                float busy = 0;
+                var inf = kP.Place.ToList();
+                if (inf != null)
+                {
+                    foreach(var i in inf)
+                    {
+                        all++;
+                        if(i.Status == false)
+                        {
+                            busy++;
+                        }
+                    }
+                    if (busy == all)
+                    {
+                        FreeBusy.Text = "Переполнено";
+                    }
+                    if(busy != all && busy > 0)
+                    {
+                        FreeBusy.Text = Convert.ToString(busy / all * 100) + "%";
+                    }
+                    if(busy == 0)
+                    {
+                        FreeBusy.Text = "Все свободны";
+                    }
+                }
+            }
+        }
+
+        private void EnterExitPark_Click(object sender, RoutedEventArgs e)
+        {
+            using(KPContext kP = new KPContext())
+            {
+                var ForEnterOrExit = kP.Database.SqlQuery<Booking>($"select * from Booking where Booking.UserID = '{UserId.Text}'");
+                if(ForEnterOrExit != null)
+                {
+                    var info = ForEnterOrExit.Last();
+                    if(info.TimeEnd != null)
+                    {
+                        
+                    }
+                    if (info.TimeEnd == null)
+                    {
+
+                    }
+                }
+            }
+        }
     }
 }
