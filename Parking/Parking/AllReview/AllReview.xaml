@@ -8,6 +8,12 @@
         Title="Отзывы" Height="450" Width="800">
     <Grid Background="Aqua">
         <StackPanel>
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF762424" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
             <TextBlock FontSize="25" Foreground="Purple" HorizontalAlignment="Center" Margin="0 20 0 0">Все отзывы</TextBlock>
             <ListBox x:Name="ListReview" Width="700" Height="350" Background="white">
                 <ListBox.ItemTemplate>

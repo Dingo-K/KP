@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:Parking.ViewModel" d:DataContext="{d:DesignInstance Type=local:UserReg}"
+        xmlns:local="clr-namespace:Parking.ViewModel" 
         mc:Ignorable="d"
         Title="EnterAndRegist" MinHeight="650" MinWidth="500">
     <Grid x:Name="RegEnter" Background="#ffdadada">
