@@ -142,13 +142,16 @@ namespace Parking
                             }
                             if (info.TimeEnd == null) // выезд из парковки
                             {
+                                double endcost;
                                 DateTime dateTime = new DateTime();
                                 dateTime = GetNetworkDateTime();
                                 int chnge = kP.Database.ExecuteSqlCommand($"Update Booking set TimeEnd = '{dateTime}' where BookingId = {Convert.ToInt32(info.BookingId)}");
                                 int upd2 = kP.Database.ExecuteSqlCommand($"Update Place set Status = 'true' where PlaceId = {Convert.ToInt32(info.PlaceID)}");
                                 var aboutcost = PlaceInfo.Last();
-                                PlaceSector.Text = "Время стоянки: " + Convert.ToString(CheckTime(info.TimeStart, (DateTime)info.TimeEnd)) + " минут";
-                                PlaceNumber.Text = "Стоимость: " + Convert.ToString(CheckTime(info.TimeStart, (DateTime)info.TimeEnd) * aboutcost.cost);
+                                endcost = CheckTime(info.TimeStart, dateTime);
+                                PlaceSector.Text = "Время стоянки: " + Convert.ToString(endcost);
+                                endcost = endcost * aboutcost.cost;
+                                PlaceNumber.Text = "Стоимость: " + Convert.ToString(endcost);
                             }
                         }
                         if (info == null)
