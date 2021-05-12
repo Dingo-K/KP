@@ -34,3 +34,9 @@ D:\KP\Parking\Parking\bin\Debug\ru\EntityFramework.resources.dll
 D:\KP\Parking\Parking\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
 D:\KP\Parking\Parking\obj\Debug\AllReview\AllReview.g.cs
 D:\KP\Parking\Parking\obj\Debug\AllReview\AllReview.baml
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminReview.g.cs
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminUser.g.cs
+D:\KP\Parking\Parking\obj\Debug\Admin\MainAdmin.g.cs
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminReview.baml
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminUser.baml
+D:\KP\Parking\Parking\obj\Debug\Admin\MainAdmin.baml

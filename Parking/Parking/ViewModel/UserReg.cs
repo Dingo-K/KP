@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm;
+using Parking.Admin;
 using Parking.DataBase;
 using System;
 using System.Security.Cryptography;
@@ -121,7 +122,7 @@ namespace Parking.ViewModel
                 var forenter = kp.Database.SqlQuery<Users>($"select * from Users where Users.email = '{emailforEnter}'");
                 foreach(var check in forenter)
                 {
-                    if (check.email == emailforEnter && check.password == GetHashPassword(PasswrdforEnter))
+                    if (check.email == emailforEnter && check.password == GetHashPassword(PasswrdforEnter) && check.Admin == false)
                     {
                         MainWindow main = new MainWindow();
                         main.UserInfo(check.UserId, check.Firstname, check.Secondname, check.email, check.Mobile);
@@ -133,6 +134,19 @@ namespace Parking.ViewModel
                                 window.Close();
                             }
                             
+                        }
+                    }
+                    if(check.email == emailforEnter && check.password == PasswrdforEnter && check.Admin == true)
+                    {
+                        MainAdmin mainAdmin = new MainAdmin();
+                        mainAdmin.Show();
+                        foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
+                        {
+                            if (window.DataContext == this)
+                            {
+                                window.Close();
+                            }
+
                         }
                     }
                     else
