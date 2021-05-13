@@ -9,6 +9,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Parking.ViewModel
 {
@@ -73,13 +75,34 @@ namespace Parking.ViewModel
             {
                 var revi = kP.Review.ToList();
                 Reviews = new ObservableCollection<AdminReviewModel>();
-                foreach(var r in revi)
+                var sortrevi = from t in revi
+                               orderby t.TimeRev
+                               select t;
+                foreach(var r in sortrevi)
                 {
                     AdminReviewModel model = new AdminReviewModel();
-                    model.Add(r.UserId, r.Users.Firstname, r.TimeRev.ToString(), r.Review1);
+                    model.Add(r.ReviewId, r.Users.Firstname, r.TimeRev.ToString(), r.Review1);
                     Reviews.Add(model);
                 }
                 
+            }
+        }
+        public ICommand delete => new DelegateCommand(Delete);
+        public void Delete()
+        {
+            using (KPContext kP = new KPContext())
+            {
+                var revi = kP.Review.ToList();
+                Reviews = new ObservableCollection<AdminReviewModel>();
+                int numbofdelete = kP.Database.ExecuteSqlCommand($"delete from Review where ReviewId = {review.Id}");
+                MessageBox.Show("Комментарий удален");
+                foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
+                {
+                    if (window.DataContext == this)
+                    {
+                        window.Close();
+                    }
+                }
             }
         }
     }

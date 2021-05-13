@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parking.Admin"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="AdminUser" Height="450" Width="800">
     <Grid>
@@ -14,7 +15,18 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel>
-            
+            <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 20 0 20">Заполните поля</TextBlock>
+            <TextBox Text="{Binding Email}" materialDesign:HintAssist.Hint="Введите Email(пример vasya@mail.ru)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10" Background="Black" Foreground="#FFF7F7F7"></TextBox>
+            <TextBox Text="{Binding Secondname}"  materialDesign:HintAssist.Hint="Введите Фамилию" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10" Background="Black" Foreground="#FFF0F0F0"></TextBox>
+            <TextBox Text="{Binding Firstname}" materialDesign:HintAssist.Hint="Введите Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10" Background="Black" Foreground="#FFE4E4E4"></TextBox>
+            <TextBox Text="{Binding Mobile}" materialDesign:HintAssist.Hint="Введите номер телефона(пример +375297586413)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 20" Foreground="White" Background="Black"></TextBox>
+            <TextBlock FontSize="10" Foreground="Gray">Введите пароль</TextBlock>
+            <TextBox Text="{Binding Password}" FontFamily="Webdings" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 5" Background="Black"></TextBox>
+            <TextBlock FontSize="10" Foreground="Gray">Повторите пароль</TextBlock>
+            <TextBox Text="{Binding PasswordAgn}" FontFamily="Webdings" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 25" Background="Black"></TextBox>
+            <Grid Margin="0 0 0 20">
+                <Button Content="Зарегестрировать пользователя" FontSize="16" Command="{Binding regist}" Background="#FFCE0606"></Button>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>

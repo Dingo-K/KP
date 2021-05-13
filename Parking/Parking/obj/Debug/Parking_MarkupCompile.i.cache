@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\KP\Parking\Parking\App.xaml
-61540146594
+8762103786
 
-22-2134773797
+24-1280083377
 22-478681557
-Admin\AdminReview.xaml;Admin\AdminUser.xaml;Admin\MainAdmin.xaml;AllReview\AllReview.xaml;EnterAndRegist\EnterAndRegist.xaml;MainWindow.xaml;
+Admin\AdminFindResult.xaml;Admin\AdminReview.xaml;Admin\AdminUser.xaml;Admin\AdminUserFind.xaml;Admin\MainAdmin.xaml;AllReview\AllReview.xaml;EnterAndRegist\EnterAndRegist.xaml;MainWindow.xaml;
 
-False
+True
 

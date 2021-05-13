@@ -105,7 +105,20 @@ namespace Parking
 
         private void EnterExitPark_Click(object sender, RoutedEventArgs e)
         {
-            using(KPContext kP = new KPContext())
+            string sector = " ";
+            if (CheckA.IsChecked == true)
+            {
+                sector = CheckA.Content.ToString();
+            }
+            if (CheckB.IsChecked == true)
+            {
+                sector = CheckB.Content.ToString();
+            }
+            if (CheckC.IsChecked == true)
+            {
+                sector = CheckC.Content.ToString();
+            }
+            using (KPContext kP = new KPContext())
             {
                 PlaceClear();
                 var ForEnterOrExit = kP.Database.SqlQuery<Booking>($"select * from Booking where Booking.UserID = '{UserId.Text}'");
@@ -123,18 +136,21 @@ namespace Parking
                                 {
                                     if (i.Status == true)
                                     {
-                                        //int intodata = kP.Database.ExecuteSqlCommand($"insert into Booking (UserID,PlaceID,TimeStart) values ({Convert.ToInt32(UserId.Text)},{Convert.ToInt32(i.PlaceId)},'GETDATE()'");
-                                        Booking booking = new Booking();
-                                        booking.UserID = Convert.ToInt32(UserId.Text);
-                                        booking.PlaceID = Convert.ToInt32(i.PlaceId);
-                                        booking.TimeStart = GetNetworkDateTime();
-                                        kP.Booking.Add(booking);
-                                        kP.SaveChanges();
-                                        int upd = kP.Database.ExecuteSqlCommand($"Update Place set Status = 'false' where PlaceId = {i.PlaceId}");
-                                        MessageBox.Show("Проезжайте к месту и сектору указаному ниже");
-                                        PlaceSector.Text = "Сектор: " + i.Sector;
-                                        PlaceNumber.Text = "Номер: " + i.Number;
-                                        break;
+                                        if(i.Sector == sector)
+                                        {
+                                            //int intodata = kP.Database.ExecuteSqlCommand($"insert into Booking (UserID,PlaceID,TimeStart) values ({Convert.ToInt32(UserId.Text)},{Convert.ToInt32(i.PlaceId)},'GETDATE()'");
+                                            Booking booking = new Booking();
+                                            booking.UserID = Convert.ToInt32(UserId.Text);
+                                            booking.PlaceID = Convert.ToInt32(i.PlaceId);
+                                            booking.TimeStart = GetNetworkDateTime();
+                                            kP.Booking.Add(booking);
+                                            kP.SaveChanges();
+                                            int upd = kP.Database.ExecuteSqlCommand($"Update Place set Status = 'false' where PlaceId = {i.PlaceId}");
+                                            MessageBox.Show("Проезжайте к месту и сектору указаному ниже");
+                                            PlaceSector.Text = "Сектор: " + i.Sector;
+                                            PlaceNumber.Text = "Номер: " + i.Number;
+                                            break;
+                                        }
                                     }
                                 }
 
@@ -160,18 +176,21 @@ namespace Parking
                             {
                                 if (i.Status == true)
                                 {
-                                    //int intodata = kP.Database.ExecuteSqlCommand($"insert into Booking (UserID,PlaceID,TimeStart) values ({Convert.ToInt32(UserId.Text)},{Convert.ToInt32(i.PlaceId)},'GETDATE()'");
-                                    Booking booking = new Booking();
-                                    booking.UserID = Convert.ToInt32(UserId.Text);
-                                    booking.PlaceID = Convert.ToInt32(i.PlaceId);
-                                    booking.TimeStart = GetNetworkDateTime();
-                                    kP.Booking.Add(booking);
-                                    kP.SaveChanges();
-                                    int upd3 = kP.Database.ExecuteSqlCommand($"Update Place set Status = 'false' where PlaceId = {i.PlaceId}");
-                                    MessageBox.Show("Проезжайте к месту и сектору указаному ниже");
-                                    PlaceSector.Text = "Сектор: " + i.Sector;
-                                    PlaceNumber.Text = "Номер: " + i.Number;
-                                    break;
+                                    if (i.Sector == sector)
+                                    {
+                                        //int intodata = kP.Database.ExecuteSqlCommand($"insert into Booking (UserID,PlaceID,TimeStart) values ({Convert.ToInt32(UserId.Text)},{Convert.ToInt32(i.PlaceId)},'GETDATE()'");
+                                        Booking booking = new Booking();
+                                        booking.UserID = Convert.ToInt32(UserId.Text);
+                                        booking.PlaceID = Convert.ToInt32(i.PlaceId);
+                                        booking.TimeStart = GetNetworkDateTime();
+                                        kP.Booking.Add(booking);
+                                        kP.SaveChanges();
+                                        int upd = kP.Database.ExecuteSqlCommand($"Update Place set Status = 'false' where PlaceId = {i.PlaceId}");
+                                        MessageBox.Show("Проезжайте к месту и сектору указаному ниже");
+                                        PlaceSector.Text = "Сектор: " + i.Sector;
+                                        PlaceNumber.Text = "Номер: " + i.Number;
+                                        break;
+                                    }
                                 }
                             }
                         }

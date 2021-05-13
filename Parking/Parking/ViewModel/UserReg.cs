@@ -122,24 +122,24 @@ namespace Parking.ViewModel
                 var forenter = kp.Database.SqlQuery<Users>($"select * from Users where Users.email = '{emailforEnter}'");
                 foreach(var check in forenter)
                 {
-                    if (check.email == emailforEnter && check.password == GetHashPassword(PasswrdforEnter) && check.Admin == false)
+                    if(check.email == emailforEnter && check.password == PasswrdforEnter && check.Admin == true)
                     {
-                        MainWindow main = new MainWindow();
-                        main.UserInfo(check.UserId, check.Firstname, check.Secondname, check.email, check.Mobile);
-                        main.Show();
+                        MainAdmin mainAdmin = new MainAdmin();
+                        mainAdmin.Show();
                         foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
                         {
                             if (window.DataContext == this)
                             {
                                 window.Close();
                             }
-                            
+
                         }
                     }
-                    if(check.email == emailforEnter && check.password == PasswrdforEnter && check.Admin == true)
+                    if (check.email == emailforEnter && check.password == GetHashPassword(PasswrdforEnter) && check.Admin == false)
                     {
-                        MainAdmin mainAdmin = new MainAdmin();
-                        mainAdmin.Show();
+                        MainWindow main = new MainWindow();
+                        main.UserInfo(check.UserId, check.Firstname, check.Secondname, check.email, check.Mobile);
+                        main.Show();
                         foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
                         {
                             if (window.DataContext == this)
@@ -192,12 +192,13 @@ namespace Parking.ViewModel
 
         public bool ValidReg()
         {
-            char[] Firstnamech = firstname.ToCharArray();
-            char[] Secondnamech = secondname.ToCharArray();
-            string regular_mobile = "[+]{1}[0-9]{12}";
-            string regular_email = "[@]{1}";
             try
             {
+                char[] Firstnamech = firstname.ToCharArray();
+                char[] Secondnamech = secondname.ToCharArray();
+                string regular_mobile = "[+]{1}[0-9]{12}";
+                string regular_email = "[@]{1}";
+            
                 if (Regex.IsMatch(_email, regular_email) == false || _email.Length > 100 || _email.Length < 1)
                 {
                     throw new Exception("Email введен не корректно");
@@ -255,6 +256,11 @@ namespace Parking.ViewModel
             }
             catch (Exception ex)
             {
+                if(ex.Message == "Ссылка на объект не указывает на экземпляр объекта.")
+                {
+                    MessageBox.Show("Проверьте корректность введенных данных");
+                    return false;
+                }
                 MessageBox.Show(ex.Message);
                 return false;
             }

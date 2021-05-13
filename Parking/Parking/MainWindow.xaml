@@ -94,6 +94,9 @@
                             <TextBlock FontSize="25" Foreground="Purple" HorizontalAlignment="Center">Парковка</TextBlock>
                             <TextBlock FontSize="20" HorizontalAlignment="Center">Загруженность парковки:</TextBlock>
                             <TextBlock x:Name="FreeBusy" FontSize="18" HorizontalAlignment="Center"></TextBlock>
+                            <RadioButton x:Name="CheckA" HorizontalAlignment="Center" Content="A" IsChecked="True"></RadioButton>
+                            <RadioButton x:Name="CheckB" HorizontalAlignment="Center" Content="B"></RadioButton>
+                            <RadioButton x:Name="CheckC" HorizontalAlignment="Center" Content="C"></RadioButton>
                             <Button Content="Припоркаваться/Выехать" Margin="0 20 0 0" Click="EnterExitPark_Click"></Button>
                             <TextBlock x:Name="PlaceSector" FontSize="14" HorizontalAlignment="Center" Margin="0 10 0 0" Foreground="Green"></TextBlock>
                             <TextBlock x:Name="PlaceNumber" FontSize="14" HorizontalAlignment="Center" Margin="0 10 0 0" Foreground="Green"></TextBlock>

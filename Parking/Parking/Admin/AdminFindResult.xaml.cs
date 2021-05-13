@@ -1,5 +1,4 @@
-﻿using Parking.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,14 +15,13 @@ using System.Windows.Shapes;
 namespace Parking.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для AdminUser.xaml
+    /// Логика взаимодействия для AdminFindResult.xaml
     /// </summary>
-    public partial class AdminUser : Window
+    public partial class AdminFindResult : Window
     {
-        public AdminUser()
+        public AdminFindResult()
         {
             InitializeComponent();
-            DataContext = new UserReg();
         }
     }
 }

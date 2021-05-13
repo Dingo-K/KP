@@ -1,11 +1,11 @@
-﻿<Window x:Class="Parking.Admin.AdminReview"
+﻿<Window x:Class="Parking.Admin.AdminFindResult"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parking.Admin"
         mc:Ignorable="d"
-        Title="AdminReview" Height="450" Width="800">
+        Title="AdminFindResult" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -18,10 +18,11 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Id}" Foreground="Green" FontSize="16"></TextBlock>
-                            <TextBlock Text="{Binding Firstname}" Foreground="Green" FontSize="16"></TextBlock>
-                            <TextBlock Text="{Binding Time}" FontSize="12" Foreground="Gray"></TextBlock>
-                            <TextBlock Text="{Binding Review}" Width="690" TextWrapping="Wrap" FontSize="14"></TextBlock>
+                            <TextBlock Text="{Binding Id}" FontSize="14" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Text="{Binding Firstname}" FontSize="14" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Text="{Binding Secondname}" FontSize="14" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Text="{Binding Mobile}" Width="690" TextWrapping="Wrap" FontSize="14"></TextBlock>
+                            <TextBlock Text="{Binding Email}" Width="690" TextWrapping="Wrap" FontSize="14"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
