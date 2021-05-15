@@ -15,9 +15,10 @@
         </Grid.Background>
         <StackPanel>
             <TextBlock FontSize="18" Foreground="Red" HorizontalAlignment="Center" Margin="0 10 0 50">Администратор</TextBlock>
-            <Button Margin="0 10 0 20" Content="Пользователи" Background="#FFB73A3A" BorderBrush="#FFC3BECD"></Button>
+            <Button Margin="0 10 0 20" Content="Пользователи" Background="#FFB73A3A" BorderBrush="#FFC3BECD" Click="Users_Click"></Button>
             <Button Margin="0 10 0 20" Content="Отзывы" Background="#FFB7743A" BorderBrush="#FFC1BCCB" Click="AdRev_Click"></Button>
             <Button Margin="0 10 0 20" Content="Время парковки" Background="#FFAE1D41" BorderBrush="#FFD4D1D9"></Button>
+            <Button Margin="0 10 0 20" Content="Места парковки" Background="#FFD6955E" BorderBrush="#FFC1BCCB" Click="Place_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

@@ -40,3 +40,11 @@ D:\KP\Parking\Parking\obj\Debug\Admin\MainAdmin.g.cs
 D:\KP\Parking\Parking\obj\Debug\Admin\AdminReview.baml
 D:\KP\Parking\Parking\obj\Debug\Admin\AdminUser.baml
 D:\KP\Parking\Parking\obj\Debug\Admin\MainAdmin.baml
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminFindResult.g.cs
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminUserFind.g.cs
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminFindResult.baml
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminUserFind.baml
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminUserFindResult.g.cs
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminUserMain.g.cs
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminUserFindResult.baml
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminUserMain.baml

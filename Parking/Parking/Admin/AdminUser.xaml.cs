@@ -23,7 +23,7 @@ namespace Parking.Admin
         public AdminUser()
         {
             InitializeComponent();
-            DataContext = new UserReg();
+            DataContext = new AdminRegistUserViewModel();
         }
     }
 }

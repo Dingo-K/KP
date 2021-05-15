@@ -1,16 +1,18 @@
 ﻿using DevExpress.Mvvm;
-using Parking.Admin;
 using Parking.DataBase;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
 namespace Parking.ViewModel
 {
-    class UserReg : ViewModelBase
+    class AdminRegistUserViewModel : ViewModelBase
     {
         private string firstname;
         public string Firstname
@@ -115,44 +117,6 @@ namespace Parking.ViewModel
                 passwordforEnter = value.Trim();
             }
         }
-        public void Enter()
-        {
-            using(KPContext kp = new KPContext())
-            {
-                var forenter = kp.Database.SqlQuery<Users>($"select * from Users where Users.email = '{emailforEnter}'");
-                foreach(var check in forenter)
-                {
-                    if(check.email == emailforEnter && check.password == PasswrdforEnter && check.Admin == true)
-                    {
-                        MainAdmin mainAdmin = new MainAdmin();
-                        mainAdmin.Show();
-                        foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
-                        {
-                            if (window.DataContext == this)
-                            {
-                                window.Close();
-                            }
-
-                        }
-                    }
-                    if (check.email == emailforEnter && check.password == GetHashPassword(PasswrdforEnter) && check.Admin == false)
-                    {
-                        MainWindow main = new MainWindow();
-                        main.UserInfo(check.UserId, check.Firstname, check.Secondname, check.email, check.Mobile);
-                        main.Show();
-                        foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
-                        {
-                            if (window.DataContext == this)
-                            {
-                                window.Close();
-                            }
-
-                        }
-                    }
-                   
-                }
-            }
-        }
         public void Regist()
         {
             if (ValidReg() == true)
@@ -172,8 +136,7 @@ namespace Parking.ViewModel
                     kp.Users.Add(user);
                     kp.SaveChanges();
                 }
-                MainWindow main = new MainWindow();
-                main.Show();
+                MessageBox.Show("Пользователь успешно создан");
                 foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
                 {
                     if (window.DataContext == this)
@@ -184,8 +147,6 @@ namespace Parking.ViewModel
             }
         }
         public ICommand regist => new DelegateCommand(Regist);
-        public ICommand enter => new DelegateCommand(Enter);
-
         public bool ValidReg()
         {
             try
@@ -194,7 +155,7 @@ namespace Parking.ViewModel
                 char[] Secondnamech = secondname.ToCharArray();
                 string regular_mobile = "[+]{1}[0-9]{12}";
                 string regular_email = "[@]{1}";
-            
+
                 if (Regex.IsMatch(_email, regular_email) == false || _email.Length > 100 || _email.Length < 1)
                 {
                     throw new Exception("Email введен не корректно");
@@ -217,15 +178,15 @@ namespace Parking.ViewModel
                         throw new Exception("Фамилия введена не корректно");
                     }
                 }
-                if(_password != passwordAgn)
+                if (_password != passwordAgn)
                 {
                     throw new Exception("Пароль не совпадает");
                 }
-                if(_password.Length > 50 || _password.Length < 6)
+                if (_password.Length > 50 || _password.Length < 6)
                 {
                     throw new Exception("Пароль введен не корректно");
                 }
-                
+
                 using (KPContext kp = new KPContext())
                 {
 
@@ -252,7 +213,7 @@ namespace Parking.ViewModel
             }
             catch (Exception ex)
             {
-                if(ex.Message == "Ссылка на объект не указывает на экземпляр объекта.")
+                if (ex.Message == "Ссылка на объект не указывает на экземпляр объекта.")
                 {
                     MessageBox.Show("Проверьте корректность введенных данных");
                     return false;
@@ -278,6 +239,5 @@ namespace Parking.ViewModel
             }
             return hash;
         }
-        
     }
 }

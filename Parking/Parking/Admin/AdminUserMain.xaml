@@ -1,11 +1,11 @@
-﻿<Window x:Class="Parking.Admin.AdminUserFind"
+﻿<Window x:Class="Parking.Admin.AdminUserMain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parking.Admin"
         mc:Ignorable="d"
-        Title="AdminUserFind" Height="300" Width="600" MaxHeight="300">
+        Title="AdminUserMain" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -14,10 +14,9 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel>
-            <TextBlock FontSize="16" Foreground="Red" HorizontalAlignment="Center" >Поиск</TextBlock>
-            <TextBlock FontSize="16" Foreground="White" HorizontalAlignment="Center" Margin="0 20 0 0" >Поиск осуществляется по почте:</TextBlock>
-            <TextBox x:Name="Fname" Width="300" Margin="0 20 0 0" Background="#FFCA2323" Foreground="#FFEDEDED"></TextBox>
-            <Button Background="#FF882160" Margin="0 20 0 0" Width="200" Content="Найти" Click="Find_Click"></Button>
+            <TextBlock FontSize="18" Foreground="Red" HorizontalAlignment="Center" Margin="0 10 0 50">Пользователи</TextBlock>
+            <Button Margin="0 10 0 20" Content="Регистрация пользователя" Background="#FFB73A3A" BorderBrush="#FFC3BECD" Click="Regist_Click"></Button>
+            <Button Margin="0 10 0 20" Content="Найти пользователя" Background="#FFB7743A" BorderBrush="#FFC1BCCB" Click="Find_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

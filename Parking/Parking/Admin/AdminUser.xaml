@@ -15,7 +15,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel>
-            <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 20 0 20">Заполните поля</TextBlock>
+            <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0 20 0 20" Foreground="Red">Заполните поля</TextBlock>
             <TextBox Text="{Binding Email}" materialDesign:HintAssist.Hint="Введите Email(пример vasya@mail.ru)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10" Background="Black" Foreground="#FFF7F7F7"></TextBox>
             <TextBox Text="{Binding Secondname}"  materialDesign:HintAssist.Hint="Введите Фамилию" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10" Background="Black" Foreground="#FFF0F0F0"></TextBox>
             <TextBox Text="{Binding Firstname}" materialDesign:HintAssist.Hint="Введите Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 0 10" Background="Black" Foreground="#FFE4E4E4"></TextBox>

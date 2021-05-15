@@ -90,6 +90,12 @@
     <Compile Include="Admin\AdminUserFind.xaml.cs">
       <DependentUpon>AdminUserFind.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminUserFindResult.xaml.cs">
+      <DependentUpon>AdminUserFindResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminUserMain.xaml.cs">
+      <DependentUpon>AdminUserMain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin\MainAdmin.xaml.cs">
       <DependentUpon>MainAdmin.xaml</DependentUpon>
     </Compile>
@@ -108,6 +114,7 @@
       <DependentUpon>EnterAndRegist.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AdminReviewModel.cs" />
+    <Compile Include="ViewModel\AdminRegistUserViewModel.cs" />
     <Compile Include="ViewModel\AdminReviewViewModel.cs" />
     <Compile Include="ViewModel\UserReg.cs" />
     <Page Include="Admin\AdminFindResult.xaml">
@@ -123,6 +130,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Admin\AdminUserFind.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminUserFindResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminUserMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

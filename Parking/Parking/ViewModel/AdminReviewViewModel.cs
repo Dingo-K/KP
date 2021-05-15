@@ -92,8 +92,6 @@ namespace Parking.ViewModel
         {
             using (KPContext kP = new KPContext())
             {
-                var revi = kP.Review.ToList();
-                Reviews = new ObservableCollection<AdminReviewModel>();
                 int numbofdelete = kP.Database.ExecuteSqlCommand($"delete from Review where ReviewId = {review.Id}");
                 MessageBox.Show("Комментарий удален");
                 foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)

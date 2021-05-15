@@ -30,5 +30,16 @@ namespace Parking.Admin
             adminReview.Show();
             
         }
+
+        private void Place_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Users_Click(object sender, RoutedEventArgs e)
+        {
+            AdminUserMain adminUser = new AdminUserMain();
+            adminUser.Show();
+        }
     }
 }

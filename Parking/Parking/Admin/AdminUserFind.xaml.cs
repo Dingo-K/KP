@@ -32,24 +32,19 @@ namespace Parking.Admin
             using(KPContext kP = new KPContext())
             {
                 ObservableCollection<Users> collect = new ObservableCollection<Users>();
-                string regularfname = $"%{Fname.Text}%";
+                string regularfname = $"{Fname.Text}";
                 var userinfo = kP.Users.ToList();
                 foreach(var i in userinfo)
                 {
-                    if (Regex.IsMatch(i.Firstname, regularfname))
+                    if (Regex.IsMatch(i.email, regularfname))
                     {
                         collect.Add(i);
                     }
                 }
-
-                foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
-                {
-                    if (window.DataContext == this)
-                    {
-                        window.Close();
-                    }
-
-                }
+                AdminUserFindResult adminUserFindResult = new AdminUserFindResult();
+                adminUserFindResult.Showing(collect);
+                adminUserFindResult.Show();
+                this.Close();
             }
         }
     }
