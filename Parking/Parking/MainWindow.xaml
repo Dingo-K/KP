@@ -40,24 +40,24 @@
                                 <Image Source="Resources/Park.jpg" Margin="0 10 0 0" Height="129"/>
                                 <TextBlock FontSize="25" Foreground="Purple" HorizontalAlignment="Center">Мой профиль:</TextBlock>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Padding="30 30 0 0" FontSize="20"><Run Text="ID аккаунта:"/></TextBlock>
-                                    <TextBlock x:Name="UserId" FontSize="20" Padding="10 30 0 0"></TextBlock>
+                                    <TextBlock Padding="30 30 0 0" FontSize="20" Foreground="white"><Run Text="ID аккаунта:"/></TextBlock>
+                                    <TextBlock x:Name="UserId" FontSize="20" Padding="10 30 0 0" Foreground="white"></TextBlock>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Padding="30 30 0 0" FontSize="20"><Run Text="Фамилия:"/></TextBlock>
-                                    <TextBlock x:Name="UserSecondname" FontSize="20" Padding="10 30 0 0"></TextBlock>
+                                    <TextBlock Padding="30 30 0 0" FontSize="20" Foreground="white"><Run Text="Фамилия:"/></TextBlock>
+                                    <TextBlock x:Name="UserSecondname" FontSize="20" Padding="10 30 0 0" Foreground="white"></TextBlock>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Padding="30 30 0 0" FontSize="20"><Run Text="Имя:"/></TextBlock>
-                                    <TextBlock x:Name="UserFirstname" FontSize="20" Padding="10 30 0 0"></TextBlock>
+                                    <TextBlock Padding="30 30 0 0" FontSize="20" Foreground="white"><Run Text="Имя:"/></TextBlock>
+                                    <TextBlock x:Name="UserFirstname" FontSize="20" Padding="10 30 0 0" Foreground="white"></TextBlock>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Padding="30 30 0 0" FontSize="20"><Run Text="Email:"/></TextBlock>
-                                    <TextBlock x:Name="UserEmail" FontSize="20" Padding="10 30 0 0"></TextBlock>
+                                    <TextBlock Padding="30 30 0 0" FontSize="20" Foreground="white"><Run Text="Email:"/></TextBlock>
+                                    <TextBlock x:Name="UserEmail" FontSize="20" Padding="10 30 0 0" Foreground="white"></TextBlock>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Padding="30 30 0 0" FontSize="20"><Run Text="Номер телефона:"/></TextBlock>
-                                    <TextBlock x:Name="UserPhone" FontSize="20" Padding="10 30 0 0"></TextBlock>
+                                    <TextBlock Padding="30 30 0 0" FontSize="20" Foreground="white"><Run Text="Номер телефона:"/></TextBlock>
+                                    <TextBlock x:Name="UserPhone" FontSize="20" Padding="10 30 0 0" Foreground="white"></TextBlock>
                                 </StackPanel >
                             </StackPanel>
                         </Border>
@@ -87,7 +87,7 @@
                 <TabItem.Content>
                     <Grid>
                         <StackPanel>
-                            <Button Width="100" HorizontalAlignment="Right" FontSize="8" Click="Reload_Click">
+                            <Button Width="100" HorizontalAlignment="Right" FontSize="8" Click="Reload_Click" Content="Обновить">
 
                             </Button>
                             <Image Source="Resources/Park.jpg" Margin="0 10 0 0" Height="129"/>

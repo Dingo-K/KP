@@ -26,7 +26,7 @@ namespace Parking.Admin
         {
             InitializeComponent();
         }
-        public void Showing()
+        public void Showing(string place)
         {
             using(KPContext kP = new KPContext())
             {
@@ -34,7 +34,10 @@ namespace Parking.Admin
                 var place_info = kP.Place.ToList();
                 foreach(var i in place_info)
                 {
-                    alls.Add(i);
+                    if(i.Sector == place)
+                    {
+                        alls.Add(i);
+                    }
                 }
                 ListPlace.ItemsSource = alls;
             }

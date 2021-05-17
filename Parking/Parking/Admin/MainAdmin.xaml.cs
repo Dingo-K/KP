@@ -33,8 +33,21 @@ namespace Parking.Admin
 
         private void Place_Click(object sender, RoutedEventArgs e)
         {
+            string sector = " ";
+            if (CheckA.IsChecked == true)
+            {
+                sector = CheckA.Content.ToString();
+            }
+            if (CheckB.IsChecked == true)
+            {
+                sector = CheckB.Content.ToString();
+            }
+            if (CheckC.IsChecked == true)
+            {
+                sector = CheckC.Content.ToString();
+            }
             AdminPlaceStatusInfo adminPlaceStatusInfo = new AdminPlaceStatusInfo();
-            adminPlaceStatusInfo.Showing();
+            adminPlaceStatusInfo.Showing(sector);
             adminPlaceStatusInfo.Show();
         }
 
