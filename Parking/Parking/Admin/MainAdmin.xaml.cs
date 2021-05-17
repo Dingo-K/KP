@@ -33,13 +33,21 @@ namespace Parking.Admin
 
         private void Place_Click(object sender, RoutedEventArgs e)
         {
-            
+            AdminPlaceStatusInfo adminPlaceStatusInfo = new AdminPlaceStatusInfo();
+            adminPlaceStatusInfo.Showing();
+            adminPlaceStatusInfo.Show();
         }
 
         private void Users_Click(object sender, RoutedEventArgs e)
         {
             AdminUserMain adminUser = new AdminUserMain();
             adminUser.Show();
+        }
+
+        private void TimePark_Click(object sender, RoutedEventArgs e)
+        {
+            AdminTimeParking adminTimeParking = new AdminTimeParking();
+            adminTimeParking.Show();
         }
     }
 }

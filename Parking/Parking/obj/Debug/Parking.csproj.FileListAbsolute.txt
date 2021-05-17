@@ -1,7 +1,6 @@
 D:\KP\Parking\Parking\bin\Debug\Parking.exe.config
 D:\KP\Parking\Parking\bin\Debug\Parking.exe
 D:\KP\Parking\Parking\bin\Debug\Parking.pdb
-D:\KP\Parking\Parking\obj\Debug\Parking.csprojAssemblyReference.cache
 D:\KP\Parking\Parking\obj\Debug\MainWindow.g.cs
 D:\KP\Parking\Parking\obj\Debug\App.g.cs
 D:\KP\Parking\Parking\obj\Debug\Parking_MarkupCompile.cache
@@ -48,3 +47,8 @@ D:\KP\Parking\Parking\obj\Debug\Admin\AdminUserFindResult.g.cs
 D:\KP\Parking\Parking\obj\Debug\Admin\AdminUserMain.g.cs
 D:\KP\Parking\Parking\obj\Debug\Admin\AdminUserFindResult.baml
 D:\KP\Parking\Parking\obj\Debug\Admin\AdminUserMain.baml
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminPlaceStatusInfo.g.cs
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminPlaceStatusInfo.baml
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminTimeParking.g.cs
+D:\KP\Parking\Parking\obj\Debug\Admin\AdminTimeParking.baml
+D:\KP\Parking\Parking\obj\Debug\Parking.csprojAssemblyReference.cache

@@ -172,15 +172,8 @@ namespace Parking.ViewModel
                     kp.Users.Add(user);
                     kp.SaveChanges();
                 }
-                MainWindow main = new MainWindow();
-                main.Show();
-                foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
-                {
-                    if (window.DataContext == this)
-                    {
-                        window.Close();
-                    }
-                }
+                MessageBox.Show("Регистрация прошла успешно");
+                Clear();
             }
         }
         public ICommand regist => new DelegateCommand(Regist);
@@ -225,7 +218,14 @@ namespace Parking.ViewModel
                 {
                     throw new Exception("Пароль введен не корректно");
                 }
-                
+                if(Firstname.Length < 1 || Firstname.Length > 50)
+                {
+                    throw new Exception("Имя введено не корректно");
+                }
+                if(Secondname.Length > 50 || Secondname.Length < 1)
+                {
+                    throw new Exception("Фамилия введена не корректно");
+                }
                 using (KPContext kp = new KPContext())
                 {
 
@@ -278,6 +278,14 @@ namespace Parking.ViewModel
             }
             return hash;
         }
-        
+        private void Clear()
+        {
+            Firstname = "";
+            Secondname = "";
+            Mobile = "";
+            Email = "";
+            Password = "";
+            PasswordAgn = "";
+        }
     }
 }

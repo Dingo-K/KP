@@ -154,7 +154,8 @@ namespace Parking.ViewModel
                 char[] Firstnamech = firstname.ToCharArray();
                 char[] Secondnamech = secondname.ToCharArray();
                 string regular_mobile = "[+]{1}[0-9]{12}";
-                string regular_email = "[@]{1}";
+                string regular_email = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$";
 
                 if (Regex.IsMatch(_email, regular_email) == false || _email.Length > 100 || _email.Length < 1)
                 {
@@ -186,7 +187,14 @@ namespace Parking.ViewModel
                 {
                     throw new Exception("Пароль введен не корректно");
                 }
-
+                if (Firstname.Length < 1 || Firstname.Length > 50)
+                {
+                    throw new Exception("Имя введено не корректно");
+                }
+                if (Secondname.Length > 50 || Secondname.Length < 1)
+                {
+                    throw new Exception("Фамилия введена не корректно");
+                }
                 using (KPContext kp = new KPContext())
                 {
 

@@ -81,8 +81,14 @@
     <Compile Include="Admin\AdminFindResult.xaml.cs">
       <DependentUpon>AdminFindResult.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminPlaceStatusInfo.xaml.cs">
+      <DependentUpon>AdminPlaceStatusInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminReview.xaml.cs">
       <DependentUpon>AdminReview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminTimeParking.xaml.cs">
+      <DependentUpon>AdminTimeParking.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminUser.xaml.cs">
       <DependentUpon>AdminUser.xaml</DependentUpon>
@@ -114,14 +120,24 @@
       <DependentUpon>EnterAndRegist.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AdminReviewModel.cs" />
+    <Compile Include="Model\AdminTimeParkingModel.cs" />
     <Compile Include="ViewModel\AdminRegistUserViewModel.cs" />
     <Compile Include="ViewModel\AdminReviewViewModel.cs" />
+    <Compile Include="ViewModel\AdminTimeParkingViewModel.cs" />
     <Compile Include="ViewModel\UserReg.cs" />
     <Page Include="Admin\AdminFindResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Admin\AdminPlaceStatusInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Admin\AdminReview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminTimeParking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
