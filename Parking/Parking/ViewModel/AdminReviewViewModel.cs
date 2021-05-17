@@ -92,7 +92,7 @@ namespace Parking.ViewModel
         {
             using (KPContext kP = new KPContext())
             {
-                int numbofdelete = kP.Database.ExecuteSqlCommand($"delete from Review where ReviewId = {review.Id}");
+                int numberofdelete = kP.Database.ExecuteSqlCommand($"delete from Review where ReviewId = {review.Id}");
                 MessageBox.Show("Комментарий удален");
                 foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
                 {

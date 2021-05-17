@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parking" xmlns:viewmodel="clr-namespace:Parking.ViewModel"
         mc:Ignorable="d"
-        Title="Парковка"  MinHeight="650" MinWidth="500" >
+        Title="Parking"  MinHeight="650" MinWidth="500" >
     <Grid x:Name="Mainf" Background="Black">
         <TabControl SelectionChanged="TabControl_SelectionChanged">
             <TabControl.BorderBrush>

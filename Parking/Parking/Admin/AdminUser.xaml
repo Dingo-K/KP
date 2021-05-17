@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Parking.Admin"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AdminUser" Height="450" Width="800">
+        Title="Parking" MinHeight="650" MinWidth="500">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

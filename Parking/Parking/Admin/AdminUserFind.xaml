@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parking.Admin"
         mc:Ignorable="d"
-        Title="AdminUserFind" Height="300" Width="600" MaxHeight="300">
+        Title="Parking" Height="300" Width="600" MaxHeight="300" MinHeight="300" MinWidth="600">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

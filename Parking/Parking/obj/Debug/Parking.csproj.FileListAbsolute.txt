@@ -51,4 +51,3 @@ D:\KP\Parking\Parking\obj\Debug\Admin\AdminPlaceStatusInfo.g.cs
 D:\KP\Parking\Parking\obj\Debug\Admin\AdminPlaceStatusInfo.baml
 D:\KP\Parking\Parking\obj\Debug\Admin\AdminTimeParking.g.cs
 D:\KP\Parking\Parking\obj\Debug\Admin\AdminTimeParking.baml
-D:\KP\Parking\Parking\obj\Debug\Parking.csprojAssemblyReference.cache
