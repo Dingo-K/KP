@@ -26,16 +26,30 @@ namespace Parking.Admin
 
         private void Regist_Click(object sender, RoutedEventArgs e)
         {
-            AdminUser adminUser = new AdminUser();
-            adminUser.Show();
-            this.Close();
+            try
+            {
+                AdminUser adminUser = new AdminUser();
+                adminUser.Show();
+                this.Close();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Попробуйте позже");
+            }
         }
 
         private void Find_Click(object sender, RoutedEventArgs e)
         {
-            AdminUserFind adminUserFind = new AdminUserFind();
-            adminUserFind.Show();
-            this.Close();
+            try
+            {
+                AdminUserFind adminUserFind = new AdminUserFind();
+                adminUserFind.Show();
+                this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Попробуйте позже");
+            }
         }
     }
 }

@@ -26,9 +26,15 @@ namespace Parking.Admin
 
         private void AdRev_Click(object sender, RoutedEventArgs e)
         {
-            AdminReview adminReview = new AdminReview();
-            adminReview.Show();
-            
+            try
+            {
+                AdminReview adminReview = new AdminReview();
+                adminReview.Show();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Попробуйте позже");
+            }
         }
 
         private void Place_Click(object sender, RoutedEventArgs e)
@@ -46,21 +52,46 @@ namespace Parking.Admin
             {
                 sector = CheckC.Content.ToString();
             }
-            AdminPlaceStatusInfo adminPlaceStatusInfo = new AdminPlaceStatusInfo();
-            adminPlaceStatusInfo.Showing(sector);
-            adminPlaceStatusInfo.Show();
+            try
+            {
+                AdminPlaceStatusInfo adminPlaceStatusInfo = new AdminPlaceStatusInfo();
+                adminPlaceStatusInfo.Showing(sector);
+                adminPlaceStatusInfo.Show();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Попробуйте позже");
+            }
         }
 
         private void Users_Click(object sender, RoutedEventArgs e)
         {
-            AdminUserMain adminUser = new AdminUserMain();
-            adminUser.Show();
+            try
+            {
+                AdminUserMain adminUser = new AdminUserMain();
+                adminUser.Show();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Попробуйте позже");
+            }
         }
 
         private void TimePark_Click(object sender, RoutedEventArgs e)
         {
-            AdminTimeParking adminTimeParking = new AdminTimeParking();
-            adminTimeParking.Show();
+            try
+            {
+                AdminTimeParking adminTimeParking = new AdminTimeParking();
+                adminTimeParking.Show();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Попробуйте позже");
+            }
+        }
+        public void Showing(string name)
+        {
+            AdminName.Text = name;
         }
     }
 }

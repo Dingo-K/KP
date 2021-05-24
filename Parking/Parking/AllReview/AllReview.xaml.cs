@@ -28,18 +28,25 @@ namespace Parking.AllReview
         }
         public void Showing()
         {
-            using(KPContext kp = new KPContext())
+            try
             {
-                
-                var revs = kp.Review.ToList();
-                alls = new ObservableCollection<AllRev>();
-                foreach(var i in revs)
+                using (KPContext kp = new KPContext())
                 {
-                    AllRev allRev = new AllRev();
-                    allRev.Add(i.Users.Firstname, i.TimeRev.ToString(), i.Review1);
-                    alls.Add(allRev);
+
+                    var revs = kp.Review.ToList();
+                    alls = new ObservableCollection<AllRev>();
+                    foreach (var i in revs)
+                    {
+                        AllRev allRev = new AllRev();
+                        allRev.Add(i.Users.Firstname, i.TimeRev.ToString(), i.Review1);
+                        alls.Add(allRev);
+                    }
+                    ListReview.ItemsSource = alls;
                 }
-                ListReview.ItemsSource = alls;
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Попробуйте позже");
             }
         }
     }

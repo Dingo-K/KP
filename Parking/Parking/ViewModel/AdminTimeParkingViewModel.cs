@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Parking.ViewModel
 {
@@ -65,13 +66,20 @@ namespace Parking.ViewModel
         {
             using(KPContext kP = new KPContext())
             {
-                bookings = new ObservableCollection<AdminTimeParkingModel>();
-                var bookinginfo = kP.Booking.ToList();
-                foreach(var i in bookinginfo)
+                try
                 {
-                    AdminTimeParkingModel adminTimeParkingModel = new AdminTimeParkingModel();
-                    adminTimeParkingModel.Add("Имя Пользователя: " + i.Users.Firstname,"Номер Места: " + i.Place.Number.ToString(),"Начало времени: " + i.TimeStart.ToString(), "Конец времени: " + i.TimeEnd.ToString());
-                    bookings.Add(adminTimeParkingModel);
+                    bookings = new ObservableCollection<AdminTimeParkingModel>();
+                    var bookinginfo = kP.Booking.ToList();
+                    foreach (var i in bookinginfo)
+                    {
+                        AdminTimeParkingModel adminTimeParkingModel = new AdminTimeParkingModel();
+                        adminTimeParkingModel.Add("Имя Пользователя: " + i.Users.Firstname, "Номер Места: " + i.Place.Number.ToString(), "Начало времени: " + i.TimeStart.ToString(), "Конец времени: " + i.TimeEnd.ToString());
+                        bookings.Add(adminTimeParkingModel);
+                    }
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Попробуйте позже");
                 }
             }
         }

@@ -30,16 +30,23 @@ namespace Parking.Admin
         {
             using(KPContext kP = new KPContext())
             {
-                alls = new ObservableCollection<Place>();
-                var place_info = kP.Place.ToList();
-                foreach(var i in place_info)
+                try
                 {
-                    if(i.Sector == place)
+                    alls = new ObservableCollection<Place>();
+                    var place_info = kP.Place.ToList();
+                    foreach (var i in place_info)
                     {
-                        alls.Add(i);
+                        if (i.Sector == place)
+                        {
+                            alls.Add(i);
+                        }
                     }
+                    ListPlace.ItemsSource = alls;
                 }
-                ListPlace.ItemsSource = alls;
+                catch(Exception)
+                {
+                    MessageBox.Show("Попробуйте позже");
+                }
             }
         }
     }

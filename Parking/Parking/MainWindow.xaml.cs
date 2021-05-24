@@ -1,5 +1,6 @@
 ﻿using Parking.DataBase;
 using Parking.ViewModel;
+using Parking.EnterAndRegist;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,8 +30,19 @@ namespace Parking
         public MainWindow()
         {
             InitializeComponent();
-            
-            
+            try
+            {
+                using(KPContext kP = new KPContext())
+                {
+                    var costplaceinfo = kP.Place.ToList();
+                    var cost = costplaceinfo.First();
+                    CostPlace.Text = cost.cost.ToString() + " копеек/минута";
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("попробуйте позже");
+            }
         }
         internal void UserInfo(int id, string firstname, string secondname, string email, string mobile)
         {
@@ -43,22 +55,33 @@ namespace Parking
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-            if(MyMessege.Text != null)
+            try
             {
-                using (KPContext kp = new KPContext())
+                if (MyMessege.Text != null || MyMessege.Text.Length < 300 || MyMessege.Text.Length > 1 )
                 {
-                    Review review = new Review()
+                    using (KPContext kp = new KPContext())
                     {
-                        UserId = Convert.ToInt32(UserId.Text),
-                        ParkingId = 1,
-                        Review1 = MyMessege.Text,
-                        TimeRev = DateTime.Now
-                    };
-                    MyMessege.Clear();
-                    kp.Review.Add(review);
-                    kp.SaveChanges();
-                    MessageBox.Show("Спасибо! Ваш отзыв очень ценен для нас.");
+                        Review review = new Review()
+                        {
+                            UserId = Convert.ToInt32(UserId.Text),
+                            ParkingId = 1,
+                            Review1 = MyMessege.Text,
+                            TimeRev = GetNetworkDateTime()
+                        };
+                        MyMessege.Clear();
+                        kp.Review.Add(review);
+                        kp.SaveChanges();
+                        MessageBox.Show("Спасибо! Ваш отзыв очень ценен для нас.");
+                    }
                 }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Попробуйте позже");
             }
         }
 
@@ -71,35 +94,42 @@ namespace Parking
 
         private void Reload_Click(object sender, RoutedEventArgs e)
         {
-            using(KPContext kP = new KPContext())
+            try
             {
-                FreeBusy.Text = " ";
-                float all = 0;
-                float busy = 0;
-                var inf = kP.Place.ToList();
-                if (inf != null)
+                using (KPContext kP = new KPContext())
                 {
-                    foreach(var i in inf)
+                    FreeBusy.Text = " ";
+                    float all = 0;
+                    float busy = 0;
+                    var inf = kP.Place.ToList();
+                    if (inf != null)
                     {
-                        all++;
-                        if(i.Status == false)
+                        foreach (var i in inf)
                         {
-                            busy++;
+                            all++;
+                            if (i.Status == false)
+                            {
+                                busy++;
+                            }
+                        }
+                        if (busy == all)
+                        {
+                            FreeBusy.Text = "Переполнено";
+                        }
+                        if (busy != all && busy > 0)
+                        {
+                            FreeBusy.Text = Convert.ToString(busy / all * 100) + "%";
+                        }
+                        if (busy == 0)
+                        {
+                            FreeBusy.Text = "Все свободны";
                         }
                     }
-                    if (busy == all)
-                    {
-                        FreeBusy.Text = "Переполнено";
-                    }
-                    if(busy != all && busy > 0)
-                    {
-                        FreeBusy.Text = Convert.ToString(busy / all * 100) + "%";
-                    }
-                    if(busy == 0)
-                    {
-                        FreeBusy.Text = "Все свободны";
-                    }
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Попробуйте позже");
             }
         }
 
@@ -120,10 +150,11 @@ namespace Parking
             }
             using (KPContext kP = new KPContext())
             {
-                PlaceClear();
-                var ForEnterOrExit = kP.Database.SqlQuery<Booking>($"select * from Booking where Booking.UserID = '{UserId.Text}'");
+                
                 try
                 {
+                    PlaceClear();
+                    var ForEnterOrExit = kP.Database.SqlQuery<Booking>($"select * from Booking where Booking.UserID = '{UserId.Text}'");
                     if (ForEnterOrExit != null)
                     {
                         var info = ForEnterOrExit.LastOrDefault();
@@ -224,17 +255,28 @@ namespace Parking
         {
             using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
             {
-
-                socket.Connect("time.nist.gov", 13);
-                using (StreamReader rstream = new StreamReader(new NetworkStream(socket)))
+                try
                 {
-                    string value = rstream.ReadToEnd().Trim();
-                    MatchCollection matches = Regex.Matches(value, @"((\d*)-(\d*)-(\d*))|((\d*):(\d*):(\d*))");
-                    string[] dd = matches[0].Value.Split('-');
-                    return DateTime.Parse($"{matches[1].Value} {dd[2]}.{dd[1]}.{dd[0]}");
+                    socket.Connect("time.nist.gov", 13);
+                    using (StreamReader rstream = new StreamReader(new NetworkStream(socket)))
+                    {
+                        string value = rstream.ReadToEnd().Trim();
+                        MatchCollection matches = Regex.Matches(value, @"((\d*)-(\d*)-(\d*))|((\d*):(\d*):(\d*))");
+                        string[] dd = matches[0].Value.Split('-');
+                        return DateTime.Parse($"{matches[1].Value} {dd[2]}.{dd[1]}.{dd[0]}");
+                    }
+                }
+                catch(Exception)
+                {
+                    return default(DateTime);
                 }
 
             }
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -73,18 +73,24 @@ namespace Parking.ViewModel
         {
             using(KPContext kP = new KPContext())
             {
-                var revi = kP.Review.ToList();
-                Reviews = new ObservableCollection<AdminReviewModel>();
-                var sortrevi = from t in revi
-                               orderby t.TimeRev
-                               select t;
-                foreach(var r in sortrevi)
+                try
                 {
-                    AdminReviewModel model = new AdminReviewModel();
-                    model.Add(r.ReviewId, r.Users.Firstname, r.TimeRev.ToString(), r.Review1);
-                    Reviews.Add(model);
+                    var revi = kP.Review.ToList();
+                    Reviews = new ObservableCollection<AdminReviewModel>();
+                    var sortrevi = from t in revi
+                                   orderby t.TimeRev
+                                   select t;
+                    foreach (var r in sortrevi)
+                    {
+                        AdminReviewModel model = new AdminReviewModel();
+                        model.Add(r.ReviewId, r.Users.Firstname, r.TimeRev.ToString(), r.Review1);
+                        Reviews.Add(model);
+                    }
                 }
-                
+                catch(Exception)
+                {
+                    MessageBox.Show("Попробуйте позже");
+                }
             }
         }
         public ICommand delete => new DelegateCommand(Delete);
@@ -92,14 +98,21 @@ namespace Parking.ViewModel
         {
             using (KPContext kP = new KPContext())
             {
-                int numberofdelete = kP.Database.ExecuteSqlCommand($"delete from Review where ReviewId = {review.Id}");
-                MessageBox.Show("Комментарий удален");
-                foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
+                try
                 {
-                    if (window.DataContext == this)
+                    int numberofdelete = kP.Database.ExecuteSqlCommand($"delete from Review where ReviewId = {review.Id}");
+                    MessageBox.Show("Комментарий удален");
+                    foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
                     {
-                        window.Close();
+                        if (window.DataContext == this)
+                        {
+                            window.Close();
+                        }
                     }
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Попробуйте позже");
                 }
             }
         }

@@ -1,6 +1,7 @@
 ﻿using DevExpress.Mvvm;
 using Parking.Admin;
 using Parking.DataBase;
+using Parking.Singleton;
 using System;
 using System.Security.Cryptography;
 using System.Text;
@@ -119,12 +120,17 @@ namespace Parking.ViewModel
         {
             using(KPContext kp = new KPContext())
             {
+                int checkingenter = 0;
                 var forenter = kp.Database.SqlQuery<Users>($"select * from Users where Users.email = '{emailforEnter}'");
                 foreach(var check in forenter)
                 {
                     if(check.email == emailforEnter && check.password == PasswrdforEnter && check.Admin == true)
                     {
+                        checkingenter++;
                         MainAdmin mainAdmin = new MainAdmin();
+                        MainUserInfo mainUserInfo = new MainUserInfo();
+                        mainUserInfo.Show(check.UserId.ToString(), check.Firstname, check.Secondname, check.email, check.Mobile);
+                        mainAdmin.Showing(mainUserInfo.info.Firstname);
                         mainAdmin.Show();
                         foreach (System.Windows.Window window in System.Windows.Application.Current.Windows)
                         {
@@ -137,6 +143,7 @@ namespace Parking.ViewModel
                     }
                     if (check.email == emailforEnter && check.password == GetHashPassword(PasswrdforEnter) && check.Admin == false)
                     {
+                        checkingenter++;
                         MainWindow main = new MainWindow();
                         main.UserInfo(check.UserId, check.Firstname, check.Secondname, check.email, check.Mobile);
                         main.Show();
@@ -149,7 +156,10 @@ namespace Parking.ViewModel
 
                         }
                     }
-                   
+                }
+                if (checkingenter == 0)
+                {
+                    MessageBox.Show("Проверьте корректность введенных данных");
                 }
             }
         }

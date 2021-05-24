@@ -34,12 +34,19 @@ namespace Parking.Admin
         {
            using(KPContext kP = new KPContext())
             {
-                Users users = new Users();
-                users = (Users)ListUser.SelectedItem;
-                int numbofdelete = kP.Database.ExecuteSqlCommand($"delete from Users where Users.UserId = {users.UserId}");
-                int revofdelete = kP.Database.ExecuteSqlCommand($"delete from Review where UserId = {users.UserId}");
-                MessageBox.Show("Пользователь успешно удален");
-                this.Close();
+                try
+                {
+                    Users users = new Users();
+                    users = (Users)ListUser.SelectedItem;
+                    int revofdelete = kP.Database.ExecuteSqlCommand($"delete from Review where UserId = {users.UserId}");
+                    int numbofdelete = kP.Database.ExecuteSqlCommand($"delete from Users where Users.UserId = {users.UserId}");
+                    MessageBox.Show("Пользователь успешно удален");
+                    this.Close();
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Попробуйте позже");
+                }
             } 
         }
     }

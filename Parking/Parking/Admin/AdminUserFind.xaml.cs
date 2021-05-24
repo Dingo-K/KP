@@ -31,20 +31,27 @@ namespace Parking.Admin
         {
             using(KPContext kP = new KPContext())
             {
-                ObservableCollection<Users> collect = new ObservableCollection<Users>();
-                string regularfname = $"{Fname.Text}";
-                var userinfo = kP.Users.ToList();
-                foreach(var i in userinfo)
+                try
                 {
-                    if (Regex.IsMatch(i.email, regularfname))
+                    ObservableCollection<Users> collect = new ObservableCollection<Users>();
+                    string regularfname = $"{Fname.Text}";
+                    var userinfo = kP.Users.ToList();
+                    foreach (var i in userinfo)
                     {
-                        collect.Add(i);
+                        if (Regex.IsMatch(i.email, regularfname))
+                        {
+                            collect.Add(i);
+                        }
                     }
+                    AdminUserFindResult adminUserFindResult = new AdminUserFindResult();
+                    adminUserFindResult.Showing(collect);
+                    adminUserFindResult.Show();
+                    this.Close();
                 }
-                AdminUserFindResult adminUserFindResult = new AdminUserFindResult();
-                adminUserFindResult.Showing(collect);
-                adminUserFindResult.Show();
-                this.Close();
+                catch(Exception)
+                {
+                    MessageBox.Show("Попробуйте позже");
+                }
             }
         }
     }
